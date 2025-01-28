@@ -1085,6 +1085,9 @@ spec:
                     type: object
                 type: object
                 x-kubernetes-map-type: atomic
+                x-kubernetes-validations:
+                - message: MachineSet selector is immutable
+                  rule: self == oldSelf
               template:
                 description: |-
                   template is the object that describes the machine that will be created if

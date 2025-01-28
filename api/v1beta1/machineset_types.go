@@ -78,6 +78,7 @@ type MachineSetSpec struct {
 	// Label keys and values that must match in order to be controlled by this MachineSet.
 	// It must match the machine template's labels.
 	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+	// +kubebuilder:validation:XValidation:rule="self == oldSelf",message="MachineSet selector is immutable"
 	Selector metav1.LabelSelector `json:"selector"`
 
 	// template is the object that describes the machine that will be created if
